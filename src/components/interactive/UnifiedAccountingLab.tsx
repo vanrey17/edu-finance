@@ -59,64 +59,7 @@ export interface TransactionDoc {
   nominal: number;
   akunDebit: string;
   akunKredit: string;
-}
-
-/* ─── Initial Sample Data for Perusahaan Jasa ─── */
-const defaultServiceTransactions: TransactionDoc[] = [
-  { id: 't1', tanggal: '2025-10-01', nomorBukti: 'BKM-01', keterangan: 'Setoran modal awal pemilik', nominal: 20000000, akunDebit: 'Kas (101)', akunKredit: 'Modal Pemilik (301)' },
-  { id: 't2', tanggal: '2025-10-03', nomorBukti: 'BKK-01', keterangan: 'Pembayaran sewa gedung 1 tahun', nominal: 3600000, akunDebit: 'Sewa Dibayar Dimuka (103)', akunKredit: 'Kas (101)' },
-];
-
-const defaultServiceJournal: JournalEntry[] = [
-  { id: 'j1', tanggal: '2025-10-01', keterangan: 'Kas', ref: '101', debit: 20000000, kredit: 0 },
-  { id: 'j2', tanggal: '2025-10-01', keterangan: 'Modal Pemilik', ref: '301', debit: 0, kredit: 20000000 },
-  { id: 'j3', tanggal: '2025-10-03', keterangan: 'Sewa Dibayar Dimuka', ref: '103', debit: 3600000, kredit: 0 },
-  { id: 'j4', tanggal: '2025-10-03', keterangan: 'Kas', ref: '101', debit: 0, kredit: 3600000 },
-  { id: 'j5', tanggal: '2025-10-06', keterangan: 'Perlengkapan', ref: '104', debit: 1500000, kredit: 0 },
-  { id: 'j6', tanggal: '2025-10-06', keterangan: 'Kas', ref: '101', debit: 0, kredit: 1500000 },
-  { id: 'j7', tanggal: '2025-10-10', keterangan: 'Piutang Usaha', ref: '102', debit: 4000000, kredit: 0 },
-  { id: 'j8', tanggal: '2025-10-10', keterangan: 'Pendapatan Jasa', ref: '401', debit: 0, kredit: 4000000 },
-  { id: 'j9', tanggal: '2025-10-15', keterangan: 'Kas', ref: '101', debit: 5000000, kredit: 0 },
-  { id: 'j10', tanggal: '2025-10-15', keterangan: 'Pendapatan Jasa', ref: '401', debit: 0, kredit: 5000000 },
-  { id: 'j11', tanggal: '2025-10-25', keterangan: 'Beban Gaji', ref: '501', debit: 2500000, kredit: 0 },
-  { id: 'j12', tanggal: '2025-10-25', keterangan: 'Kas', ref: '101', debit: 0, kredit: 2500000 },
-];
-
-const defaultServiceAdjustments: AdjustmentEntry[] = [
-  { id: 'a1', tanggal: '2025-10-31', keterangan: 'Beban Sewa', ref: '502', debit: 300000, kredit: 0 },
-  { id: 'a2', tanggal: '2025-10-31', keterangan: 'Sewa Dibayar Dimuka', ref: '103', debit: 0, kredit: 300000 },
-  { id: 'a3', tanggal: '2025-10-31', keterangan: 'Beban Perlengkapan', ref: '503', debit: 500000, kredit: 0 },
-  { id: 'a4', tanggal: '2025-10-31', keterangan: 'Perlengkapan', ref: '104', debit: 0, kredit: 500000 },
-];
-
-/* ─── Initial Sample Data for Perusahaan Dagang ─── */
-const defaultTradingTransactions: TransactionDoc[] = [
-  { id: 'tt1', tanggal: '2025-10-02', nomorBukti: 'FB-01', keterangan: 'Pembelian barang dagang kredit dari PT Mulia', nominal: 10000000, akunDebit: 'Pembelian (501)', akunKredit: 'Utang Dagang (201)' },
-  { id: 'tt2', tanggal: '2025-10-05', nomorBukti: 'FJ-01', keterangan: 'Penjualan barang dagang tunai', nominal: 6500000, akunDebit: 'Kas (101)', akunKredit: 'Penjualan (401)' },
-  { id: 'tt3', tanggal: '2025-10-08', nomorBukti: 'BKK-01', keterangan: 'Pembayaran beban angkut pembelian', nominal: 500000, akunDebit: 'Beban Angkut Pembelian (502)', akunKredit: 'Kas (101)' },
-  { id: 'tt4', tanggal: '2025-10-12', nomorBukti: 'FJ-02', keterangan: 'Penjualan barang dagang kredit (faktur)', nominal: 8000000, akunDebit: 'Piutang Dagang (102)', akunKredit: 'Penjualan (401)' },
-  { id: 'tt5', tanggal: '2025-10-20', nomorBukti: 'BKK-02', keterangan: 'Pelunasan utang dagang ke PT Mulia', nominal: 5000000, akunDebit: 'Utang Dagang (201)', akunKredit: 'Kas (101)' },
-];
-
-const defaultTradingJournal: JournalEntry[] = [
-  { id: 'tj1', tanggal: '2025-10-02', keterangan: 'Pembelian', ref: '501', debit: 10000000, kredit: 0 },
-  { id: 'tj2', tanggal: '2025-10-02', keterangan: 'Utang Dagang', ref: '201', debit: 0, kredit: 10000000 },
-  { id: 'tj3', tanggal: '2025-10-05', keterangan: 'Kas', ref: '101', debit: 6500000, kredit: 0 },
-  { id: 'tj4', tanggal: '2025-10-05', keterangan: 'Penjualan', ref: '401', debit: 0, kredit: 6500000 },
-  { id: 'tj5', tanggal: '2025-10-08', keterangan: 'Beban Angkut Pembelian', ref: '502', debit: 500000, kredit: 0 },
-  { id: 'tj6', tanggal: '2025-10-08', keterangan: 'Kas', ref: '101', debit: 0, kredit: 500000 },
-  { id: 'tj7', tanggal: '2025-10-12', keterangan: 'Piutang Dagang', ref: '102', debit: 8000000, kredit: 0 },
-  { id: 'tj8', tanggal: '2025-10-12', keterangan: 'Penjualan', ref: '401', debit: 0, kredit: 8000000 },
-  { id: 'tj9', tanggal: '2025-10-20', keterangan: 'Utang Dagang', ref: '201', debit: 5000000, kredit: 0 },
-  { id: 'tj10', tanggal: '2025-10-20', keterangan: 'Kas', ref: '101', debit: 0, kredit: 5000000 },
-];
-
-const defaultTradingAdjustments: AdjustmentEntry[] = [
-  { id: 'ta1', tanggal: '2025-10-31', keterangan: 'Ikhtisar Laba Rugi', ref: '303', debit: 4000000, kredit: 0 },
-  { id: 'ta2', tanggal: '2025-10-31', keterangan: 'Persediaan Barang Dagang Awal', ref: '105', debit: 0, kredit: 4000000 },
-  { id: 'ta3', tanggal: '2025-10-31', keterangan: 'Persediaan Barang Dagang Akhir', ref: '105', debit: 6000000, kredit: 0 },
-  { id: 'ta4', tanggal: '2025-10-31', keterangan: 'Ikhtisar Laba Rugi', ref: '303', debit: 0, kredit: 6000000 },
-];
+};
 
 /* ─── 7 Stages Metadata ─── */
 const stagesMeta = [
@@ -194,16 +137,16 @@ const stagesMeta = [
 
 export default function UnifiedAccountingLab() {
   // Student Header State
-  const [studentName, setStudentName] = useState<string>('Siswa EduFinance');
-  const [studentClass, setStudentClass] = useState<string>('XII IPS 1');
+  const [studentName, setStudentName] = useState<string>('');
+  const [studentClass, setStudentClass] = useState<string>('');
   const [companyType, setCompanyType] = useState<'service' | 'trading'>('service');
   const [activeStep, setActiveStep] = useState<number>(1);
 
   // Data States
   const [transactions, setTransactions] = useState<TransactionDoc[]>([]);
   const [loadingTransactions, setLoadingTransactions] = useState<boolean>(true);
-  const [journalRows, setJournalRows] = useState<JournalEntry[]>(defaultServiceJournal);
-  const [adjustmentRows, setAdjustmentRows] = useState<AdjustmentEntry[]>(defaultServiceAdjustments);
+  const [journalRows, setJournalRows] = useState<JournalEntry[]>([]);
+  const [adjustmentRows, setAdjustmentRows] = useState<AdjustmentEntry[]>([]);
 
   // Submit & Toast States
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
@@ -249,13 +192,11 @@ export default function UnifiedAccountingLab() {
   const handleCompanyTypeChange = (type: 'service' | 'trading') => {
     setCompanyType(type);
     if (type === 'service') {
-      setTransactions(defaultServiceTransactions);
-      setJournalRows(defaultServiceJournal);
-      setAdjustmentRows(defaultServiceAdjustments);
+      setJournalRows([]);
+      setAdjustmentRows([]);
     } else {
-      setTransactions(defaultTradingTransactions);
-      setJournalRows(defaultTradingJournal);
-      setAdjustmentRows(defaultTradingAdjustments);
+      setJournalRows([]);
+      setAdjustmentRows([]);
     }
   };
 
