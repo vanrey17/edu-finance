@@ -616,19 +616,12 @@ export default function UnifiedAccountingLab() {
             <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1.5">
               Kelas <span className="text-rose-500">*</span>
             </label>
-            <select
+            <input
               value={studentClass}
               onChange={(e) => setStudentClass(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none transition-all cursor-pointer"
-            >
-              <option value="XII IPS 1">XII IPS 1</option>
-              <option value="XII IPS 2">XII IPS 2</option>
-              <option value="XII IPS 3">XII IPS 3</option>
-              <option value="XII MIPA 1">XII MIPA 1</option>
-              <option value="XII MIPA 2">XII MIPA 2</option>
-              <option value="XI IPS 1">XI IPS 1</option>
-              <option value="XI IPS 2">XI IPS 2</option>
-            </select>
+              placeholder="Masukkan Kelas..."
+              className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none transition-all "
+            />
           </div>
 
           <div className="sm:col-span-2 lg:col-span-1 flex flex-col justify-end">
